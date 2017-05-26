@@ -1,0 +1,2 @@
+###HTTP模块和express的区别
+Node.js带的http模块来创建HTTP服务器，指定了一个处理请求的函数。实际应用时，我们需要在这个函数内区分不同的HTTP请求，比如GET、HEAD、POST等。而Express版本的HelloWorld则有所不同，它可以针对每一个路径和HTTP请求指定响应函数，express有一个URL routing的概念。

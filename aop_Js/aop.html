@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>aop</title>
+<script type="text/javascript">
+
+	/*
+		call和apply都是为了改变某个函数运行时的context即上下文而存在的，换句话说，就是为了改变函数体内部this的指向。
+		apply,call:方法能劫持另外一个对象的方法，继承另外一个对象的属性.
+		Function.apply(obj,args)方法能接收两个参数
+			obj：这个对象将代替Function类里this对象
+			args：这个是数组，它将作为参数传给Function（args-->arguments）
+		Function.call(obj,[param1[,param2[,…[,paramN]]]])
+			obj：这个对象将代替Function类里this对象
+			params：这个是一个参数列表
+		bind:同样是改变this指向，但这里是引用，并不马上调用！
+	*/
+	Function.prototype.before=function(func){
+		var _self=this;
+		return function(){
+			if(func.apply(this,arguments)===false){
+				return false;
+			}
+			return _self.apply(this,arguments);
+		}
+	}
+
+	Function.prototype.after=function(func){
+		var _self=this;
+		return function(){
+			var ret=_self.apply(this,arguments);
+			if(ret===false){
+				return false;
+			}
+			func.apply(this,arguments);
+			return ret;
+		}
+	}
+
+
+	function test(a){
+		console.log(arguments);
+		console.log("test 01"+a);
+		return true;
+	}
+
+	function test2(b,d){
+		console.log(arguments);
+		console.log("test 02"+b+d);
+	}
+
+	var temp=test.after(test2);
+
+	//console.log(temp);
+
+	//temp('bbb','ccc');
+
+	var father=function(){
+		//this.name="f";
+		this.showName=function(){
+			console.log(this.name);
+		}
+	};
+
+	var son={
+		name:"123"
+	};
+
+	father.call(son);
+
+	console.log(son);
+
+	son.showName();
+
+</script>
+</head>
+	<style>
+		span{
+			padding: 10px 10px;
+    		background: #ddd;
+    		border-radius: 20px;
+   			color: #999;
+    		display: inline-block;
+    		margin-top: 10px;
+		}
+		div{
+			width:300px;
+			padding:15px;
+		}
+	</style>
+<body>
+<div>
+	<span>老九门</span>
+	<span>微微一笑很倾城</span>
+	<span>里约</span>
+	<span>诛仙青云志</span>
+	<span>老九门</span>
+	<span>微微一笑很倾城</span>
+	<span>里约</span>
+	<span>诛仙青云志</span>
+</div>
+
+
+</body>
+</html>

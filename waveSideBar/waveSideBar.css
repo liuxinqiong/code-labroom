@@ -1,0 +1,57 @@
+.wave_side_bar_dt_poi{
+  height: 100%;
+  position: absolute;
+  right:0;
+  z-index: 999;
+}
+
+.wave_side_bar_dt{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 999;
+}
+
+.wave_side_bar_dt .alpha_sidebar{
+  position: relative;
+}
+
+.wave_side_bar_dt .alpha_sidebar li{
+  color: #D3D3D3;
+  text-align: center;
+  margin-bottom: 0;
+  cursor: pointer;
+  /*font-size: small;*/
+  height:18px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.wave_side_bar_dt .alpha_promptBox{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background: #0a9dc7;
+  position: absolute;
+  top:50px;
+  right:40px;
+}
+
+.wave_side_bar_dt .alpha_promptBox h3{
+  color: white;
+  position: relative;
+  top:11px;
+  left:18px;
+}
+
+.wave_side_bar_dt .wave_side_a{
+  display: block;
+  padding-left: 8px;
+  background: rgba(59, 13, 54, 0.16);
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+
+

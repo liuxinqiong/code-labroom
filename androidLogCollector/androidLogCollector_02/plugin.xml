@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-log-mode"
+        version="0.0.1">
+
+    <name>LogMode</name>
+
+    <description>Log the info in the app and post it into server.</description>
+
+    <keywords>log, logs</keywords>
+
+    <author>sky</author>
+
+    <!-- cordova -->
+ 
+    <!-- js -->
+    <js-module src="www/android/androidLogCollector.js" name="LogMode">
+        <clobbers target="logMode" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="LogMode" >
+                <param name="android-package"
+                      value="cordova.plugins.androidLogCollector.LogMode"/>
+            </feature>
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <preference name="KeepRunning" value="true" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!--
+             * Puts the service in a foreground state, where the system considers
+             * it to be something the user is actively aware of and thus not a
+             * candidate for killing when low on memory.
+            -->
+            <service android:name="cordova.plugins.androidLogCollector.LogService" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_LOGS" />
+        </config-file>
+
+        <source-file
+            src="src/android/LogMode.java"
+            target-dir="src/cordova/plugins/androidLogCollector" />
+
+        <source-file
+            src="src/android/LogService.java"
+            target-dir="src/cordova/plugins/androidLogCollector" />
+
+    </platform>
+
+</plugin>

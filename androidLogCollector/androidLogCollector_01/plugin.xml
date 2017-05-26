@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova.plugins.androidLogCollector"
+  version="1.0.0">
+  <name>androidLogCollector</name>
+
+  <js-module src="www/android/androidLogCollector.js" name="androidLogCollector">
+    <clobbers target="androidLogCollector" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AndroidLogCollector">
+        <param name="android-package" value="cordova.plugins.androidLogCollector.AndroidLogCollector" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+       <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+       <uses-permission android:name="android.permission.INTERNET"/>
+       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <application android:name="cordova.plugins.androidLogCollector.LogApplication" ></application>
+    </config-file>
+
+    <source-file src="src/android/LogApplication.java" target-dir="src/cordova/plugins/androidLogCollector" />
+    <source-file src="src/android/AndroidLogCollector.java" target-dir="src/cordova/plugins/androidLogCollector" />
+    <source-file src="libs/logcollector.jar" target-dir="libs" />
+  </platform>
+
+</plugin>

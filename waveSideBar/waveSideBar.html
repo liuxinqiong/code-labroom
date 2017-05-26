@@ -1,0 +1,6 @@
+<div class="wave_side_bar_dt">
+  <ul class="alpha_sidebar" on-drag="goList($event)" on-release="hidePromptBox()" on-touch="goListByTouch($event)">
+    <li ng-repeat="data in waveSideData" data-id="{{data.id}}">{{data.firstCode}}</li>
+    <div class="alpha_promptBox" ng-show="tipObj.isShow"><h3>{{tipObj.content}}</h3></div>
+  </ul>
+</div>

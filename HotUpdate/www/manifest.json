@@ -1,0 +1,28 @@
+{
+  "name": "My Ionic App",
+  "short_name": "My Ionic App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "files": {
+    "app": {
+      "version": "698221a70985560b9a1b038b89db33c73375e0de",
+      "filename": "js/app.js"
+    },
+    "controller": {
+      "version": "698221a70985560b9a1b038b89db33c73375e0de",
+      "filename": "js/controller.js"
+    }
+  },
+  "load": [
+    "js/controller.js",
+    "js/app.js"
+  ],
+  "version": "ae8199a17c3c921650b60506645b1eb24229d380"
+}
