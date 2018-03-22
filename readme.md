@@ -1,6 +1,6 @@
 ## 学习过程中实践代码
 * android日志搜集插件
-* aop in java&js
+* aop
 * canvas
 * 面试案例
 * 柯里化
@@ -11,7 +11,9 @@
 * node文件管理
 * 引用问题
 * raphael
-* 源代码阅读
+* angular源代码
 * threejs
 * vue
 * 联系人导航插件
+* 模板引擎
+* 模块加载器
