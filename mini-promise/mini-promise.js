@@ -7,7 +7,7 @@ class MyPromise {
         // 初始状态为PENDING
         this.$state = 'PENDING'
 
-        // 异步完成时需要调用的函数数组
+        // 异步完成时需要调用的函数数组，只有使用数组，是因为一个promise可能在多出使用，也就是可能then多次
         this.$chained = []
 
         // 构造成功函数
