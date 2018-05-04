@@ -8,7 +8,7 @@
 * 烟花效果
 * 热更新DEMO
 * markdown解析
-* node文件管理
+* Node文件管理
 * 引用问题
 * raphael
 * angular源代码
@@ -18,3 +18,4 @@
 * 模板引擎
 * 模块加载器
 * mini-promise
+* EventEmitter
