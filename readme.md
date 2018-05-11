@@ -18,5 +18,6 @@
 * 模板引擎
 * 模块加载器
 * mini-promise
-* EventEmitter
+* EventEmitter(node)
 * RunDog
+* mini-Koa
