@@ -71,15 +71,13 @@ class Application extends EventEmitter{
     }
 
     onerror(err,ctx){
-        console.log(2222);
-        
+        console.log('onerror')
         if(err.code === 'ENOENT'){
             ctx.status = 404;
         } else {
             ctx.status = 500;
         }
-        const msg = err.message || 'Internal error';
-        console.log(345);        
+        const msg = err.message || 'Internal error';     
         ctx.res.end(msg);
         this.emit('error',err);
     }

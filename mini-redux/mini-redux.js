@@ -39,7 +39,7 @@ export function createStore(reducer,enhancer){
 }
 
 // 中间件原理
-export applyMiddleware(...middlewares){
+export function applyMiddleware(...middlewares){
 	return createStore => (...args) =>{
 		// 1. 得到原本的store
 		const store = createStore(...args);
@@ -63,14 +63,14 @@ export applyMiddleware(...middlewares){
 }
 
 
-export compose(...funcs){
+export function compose(...funcs){
 	if(funcs.length == 0){
 		return arg => arg;
 	}
 	if(funcs.length == 1){
 		return funcs[0]
 	}
-	return funcs.reduce((ret,item)=>(...args) => ret(item(...args))
+	return funcs.reduce((ret,item)=>(...args) => ret(item(...args)))
 }
 
 function bindActionCreator(creator,dispatch){
