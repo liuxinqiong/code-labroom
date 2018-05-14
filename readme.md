@@ -21,3 +21,5 @@
 * EventEmitter(node)
 * RunDog
 * mini-Koa
+* 函数式编程实践
+* console高级调试技巧
