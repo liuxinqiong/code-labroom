@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 250px;
+            border: 1px solid #f00;
+            margin: auto;
+            text-align: center;
+        }
+
+        .box::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+
+        .box .content {
+            width: 400px;
+            background: #ccc;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>3.:before + inline-block</h2>
+    <div class="box box3">
+        <div class="content">
+            立马来看Amos实际完成的
+            <a href="http://csscoke.com/2015/07/31/nth-child_rwd_album/">
+                CSS3精美相册效果 </a>
+            效果吧！別忘了拖拉一下窗口看看 RWD 效果喔！ </div>
+    </div>
+
+</body>
+
+</html>
