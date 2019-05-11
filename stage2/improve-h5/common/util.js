@@ -16,6 +16,38 @@ function isPC() {
     return false;
 }
 
+function isWeixin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isAnOrIp() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        return 'ios'
+    } else if (/android/.test(ua)) {
+        return 'android'
+    }
+}
+
+function openInApp() {
+    if (isAnOrIp() == 'ios') {
+        var appJson = {}
+        location.href = `schema://url?appJson=${encodeURIComponent(JSON.stringify(appJson))}`
+
+    } else if (isAnOrIp() == 'android') {
+        var ifr = document.createElement("iframe");
+        var appJson = {}
+        ifr.src = `schema://hefei/android?appJson=${encodeURIComponent(JSON.stringify(appJson))}`
+        ifr.style.display = "none";
+        document.body.appendChild(ifr);
+    }
+}
+
 function scrollToElement({el, scroll}) {
     scroll.scrollTop = scroll.scrollTop + el.getBoundingClientRect().top
 }
@@ -30,6 +62,10 @@ function converDate(date) {
     }
     return date
 }
+
+// 下载跳转：iOS：https://itunes.apple.com/cn/app/id${appid} android 直接下载链接即可
+// 平台判断：微信判断、iOS 判断、android 判断、PC 判断
+// app 跳转：伪协议
 
 export {
     isPC,
